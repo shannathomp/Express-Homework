@@ -1,5 +1,6 @@
 const express = require('express')
 const app =  express()
+const magicData = require('./model/questions')
 port = 3000
 
 app.set('views', 'ejs')
@@ -10,6 +11,12 @@ app.get('/', (req,res) => {
 
 app.get('/greetings/', (req,res) => {
     res.send('Hello , Stranger.')
+})
+
+app.get('/magic/:question', (req,res) => {
+    // req.body
+    res.json(magicData[6])
+    
 })
 
 app.get('/greetings/:name', (req,res) => {
